@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 import uuid
 from datetime import datetime
 
@@ -7,6 +9,10 @@ class BaseModel:
   """
   def __init__(self, *args, **kwargs):
     """Initializes all the class attributes"""
+    
+
+
+
     self.id = str(uuid.uuid4())
     self.created_at = datetime.now()
     self.updated_at = self.created_at
@@ -29,20 +35,12 @@ class BaseModel:
     """
   # Convert created_at and updated_at  to string object in ISO format
   # https://docs.python.org/3/tutorial/datastructures.html 5.6 Looping Tech
-    create_dict = {}
-    for k, v in self.__dict__.items():
-      if k == "created_at" or k == "updated_at":
-        # https://docs.python.org/3/library/datetime.html Stringfy Time
-        create_dict[k] = v.strftime("%Y-%m-%dT%H:%M:%S.%f")
-      else:
-        if not v:
-          pass
-        else:
-          create_dict[k] = v
-    create_dict['__class__'] = self.__class.__.name__
-
-    return create_dict
-      
+    disdict = dict(self.__dict__)
+    disdict.update({'__class__': type(self).__name__,
+                    'updated_at': self.updated_at.isoformat(),
+                    'id': self.id,
+                    'created_at': self.created_at.isoformat()
+    return disdict
       
 
 
