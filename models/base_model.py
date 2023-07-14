@@ -33,14 +33,8 @@ class BaseModel:
     """Returns a dictionary containing all keys/values
     of __dict__ of the instance
     """
-  # Convert created_at and updated_at  to string object in ISO format
-  # https://docs.python.org/3/tutorial/datastructures.html 5.6 Looping Tech
-    disdict = dict(self.__dict__)
-    disdict.update({'__class__': type(self).__name__,
-                    'updated_at': self.updated_at.isoformat(),
-                    'id': self.id,
-                    'created_at': self.created_at.isoformat()
-    return disdict
-      
-
-
+    dictionary = self.__dict__.copy()
+    dictionary['__class__'] = self.__class__.__name__
+    dictionary['created_at'] = self.created_at.isoformat()
+    dictionary['updated_at'] = self.updated_at.isoformat()
+    return dictionary
