@@ -1,5 +1,3 @@
-#!/usr/bin/python3
-
 import uuid
 from datetime import datetime
 
@@ -9,10 +7,6 @@ class BaseModel:
   """
   def __init__(self, *args, **kwargs):
     """Initializes all the class attributes"""
-    
-
-
-
     self.id = str(uuid.uuid4())
     self.created_at = datetime.now()
     self.updated_at = self.created_at
@@ -33,6 +27,8 @@ class BaseModel:
     """Returns a dictionary containing all keys/values
     of __dict__ of the instance
     """
+  # Convert created_at and updated_at  to string object in ISO format
+    # by making a new dict from the self.dict
     dictionary = self.__dict__.copy()
     dictionary['__class__'] = self.__class__.__name__
     dictionary['created_at'] = self.created_at.isoformat()
