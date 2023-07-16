@@ -38,7 +38,12 @@ class TestFileStorage(unittest.TestCase):
         obj = TestFileStorage()
         storage.new(obj)
         objects = storage.all()
-        self.assertEqual(objects, {"TestClass.1": obj})
+        self.assertEqual(objects, {"TestFileStorage.1": obj})
+      
+    def to_dict(self):
+      """Converts the object to a dictionary."""
+      return self.__dict__
+
 
     def test_save(self):
         """Test the 'save' method of the FileStorage class.
