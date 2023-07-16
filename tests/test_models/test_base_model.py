@@ -49,7 +49,6 @@ class TestBaseModel(unittest.TestCase):
 
     def test_to_dict(self):
         """Tests the keys of a dictionary"""
-        
         base_model_json = self.base_model.to_dict()
         self.assertIn("id", base_model_json)
         self.assertIn("created_at", base_model_json)
