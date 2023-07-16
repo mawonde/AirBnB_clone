@@ -1,10 +1,11 @@
 #!/usr/bin/python3
 
+"""Importing the cmd and storage modules"""
 import cmd
 from models import storage
 from models.base_model import BaseModel
 
-
+"""The class inherites from cmd.Cmd"""
 class HBNBCommand(cmd.Cmd):
     
     prompt = "(hbnb) "
