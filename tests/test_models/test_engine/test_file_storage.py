@@ -39,15 +39,15 @@ class TestFileStorage(unittest.TestCase):
         storage.new(obj)
         objects = storage.all()
         self.assertEqual(objects, {"TestFileStorage.1": obj})
-      
-    def to_dict(self):
-      """Converts the object to a dictionary."""
-      return self.__dict__
 
+    def to_dict(self):
+        """Converts the object to a dictionary."""
+        return self.__dict__
 
     def test_save(self):
         """Test the 'save' method of the FileStorage class.
-        Creates a new instance, adds it to the objects dictionary, and saves it to a file.
+        Creates a new instance, adds it to the objects
+        dictionary, and saves it to a file.
         """
         file_storage = FileStorage()
         obj = TestFileStorage()
@@ -69,4 +69,3 @@ class TestFileStorage(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-
