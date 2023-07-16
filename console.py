@@ -33,7 +33,7 @@ class HBNBCommand(cmd.Cmd):
             new_instance.save()
             print(new_instance.id)
         except NameError:
-            print("** class doesn't exist **")
+                   print("** class doesn't exist **")
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
