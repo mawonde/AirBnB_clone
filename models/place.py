@@ -2,6 +2,7 @@
 """Importing the class"""
 from models.base_model import BaseModel
 
+
 class Place(BaseModel):
     """ This represents a place"""
 
