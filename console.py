@@ -154,6 +154,20 @@ class HBNBCommand(cmd.Cmd):
         else:
             print(self.errors["wrongClass"])
 
+    def count(self, arg):
+        """
+        Counts the number of instances of a class.    
+        """
+        args = shlex.split(arg)
+        models.storage.reload()
+        if len(args) < 1:
+            print(self.errors["missingClass"])
+        elif args[0] in self.classes:
+            instances = str(models.storage.all().keys())
+            print(instances.count(args[0]))
+        else:
+            print(self.errors["wrongClass"])
+
 if __name__ == "__main__":
     HBNBCommand().cmdloop()
 
